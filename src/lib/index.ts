@@ -27,7 +27,7 @@ export default async function buildAndTagAction(tools: Toolkit) {
     }
   }
 
-  if (shouldRewriteMajorAndMinorRef) {
+  if (shouldRewriteMajorAndMinorRef && semver.valid(tagName)) {
     const majorStr = semver.major(tagName).toString()
     const minorStr = semver.minor(tagName).toString()
     await createOrUpdateRef(tools, commit.sha, `v${majorStr}.${minorStr}`)
