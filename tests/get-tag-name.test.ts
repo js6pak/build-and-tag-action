@@ -23,7 +23,7 @@ describe('update-tag', () => {
 
   it('gets the tag from the release payload', () => {
     tools.context.event = 'pizza'
-    expect(() => getTagName(tools)).toThrowError(
+    expect(() => getTagName(tools)).toThrow(
       'No tag_name was found or provided!'
     )
   })
